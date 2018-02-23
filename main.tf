@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "deployer-key"
+  key_name   = "newTest"
   public_key = "ssh-rsa "
 }
 
