@@ -12,6 +12,7 @@ resource "aws_key_pair" "sampleKey" {
 resource "aws_instance" "example" {
   ami = "ami-f2d3638a"
   instance_type = "t2.micro"
+  key_name="${aws_key_pair.sampleKey.key_name}"
   vpc_security_group_ids = ["${aws_security_group.instance.id}"]
 
   user_data = <<-EOF
