@@ -32,7 +32,7 @@ resource "aws_instance" "example" {
               echo "Completed Install." >> /tmp/install.log
 
               # Start the JBoss server
-              su - appserver -c '/usr/local/share/jboss/bin/standalone.sh -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0 &'yum update -y
+              su - appserver -c '/usr/local/share/jboss/bin/standalone.sh -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0'
 
               EOF
 
