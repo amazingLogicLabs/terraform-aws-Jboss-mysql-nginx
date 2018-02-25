@@ -4,8 +4,8 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_key_pair" "deployer" {
-  key_name   = "newTest"
+resource "aws_key_pair" "sampleKey" {
+  key_name   = "sampleKey"
   public_key = "ssh-rsa "
 }
 
@@ -17,9 +17,9 @@ resource "aws_instance" "example" {
   user_data = <<-EOF
               #!/bin/bash
               echo "Hello, World" > index.html
-              yum update -y
-              yum install -y nginx >> /tmp/install.log
-              yum install -y openjdk-7-jdk >> /tmp/install.log
+              sudo yum update
+              sudo yum install nginx >> /tmp/install.log
+              yum install java-1.7.0-openjdk-devel >> /tmp/install.log
 
               cd /tmp
               wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz
